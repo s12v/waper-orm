@@ -1,9 +1,9 @@
 ORM with transparent vertical database partitioning
 ---------------------------------------------------
 
-The main idea was to separate variable-length fields to separate tables, and leave only necessary
-fields in core table. It allows to use covering indexes on core tables and overall keep high speed on large amounts of data
-without manual query optimization.
+The main idea is to move variable-length fields to separate table, and leave only necessary fields in core table.
+It allows to use covering indexes on core tables and keep high speed on large amounts of data without manual
+query optimization.
 
 Let's say, we have a table:
 ```
