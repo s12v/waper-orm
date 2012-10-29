@@ -16,7 +16,7 @@ text: text
 
 We will split it by two:
 ```
-comment (fixed length table)
+comment (fixed row-length table)
   id
   userId
   imageId
