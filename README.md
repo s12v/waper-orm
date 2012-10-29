@@ -24,22 +24,19 @@ comment_data (variable length, "heavy" table)
   id
   text
 ```
-Now we use only core tables in queries, and lazy-load data by ids from second table.
+Now we can use only core tables in queries, and lazy-load data by ids from other tables.
 
 For example:
 ```
 SELECT id FROM comment ORDER BY id LIMIT 12345678, 3
 ```
-(This query is probably using covering index and will be executed very fast despite large number of rows)
-
+This query is probably using covering index and will be executed very fast despite large number of rows.<br>
 Now we have ids, so let's fetch remaining fields:
 ```
 SELECT id, userId, imageId FROM comment WHERE id IN (56, 57, 58)
 SELECT id, text FROM comment_data WHERE id IN (56, 57, 58)
 ```
-(This queries are very fast too)
-
-
+This queries are very fast as well.
 
 Example:
 --------
